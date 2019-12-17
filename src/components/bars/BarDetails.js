@@ -5,21 +5,21 @@ import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
 import moment from 'moment';
 
-const SportDetails = (props) => {
-    const { sport, auth } = props;
+const BarDetails = (props) => {
+    const { bar, auth } = props;
     if (!auth.uid) return <Redirect to='/signIn' />
 
-    if (sport) {
+    if (bar) {
         return (
-            <div className='container section sport-details'>
+            <div className='container section bar-details'>
                 <div className='card z-depth-0'>
                     <div className='card-content'>
-                        <span className='card-title'>{ sport.title }</span>
-                        <p>{ sport.content }</p>
+                        <span className='card-title'>{ bar.title }</span>
+                        <p>{ bar.content }</p>
                     </div>
                     <div className='card-action grey lighten-4 grey-text'>
-                        <div>Posted By { sport.authorFirstName } { sport.authorLastName }</div>
-                        <div>{moment(sport.createdAt.toDate().toString()).calendar()}</div>
+                        <div>Posted By { bar.authorFirstName } { bar.authorLastName }</div>
+                        <div>{moment(bar.createdAt.toDate().toString()).calendar()}</div>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@ const SportDetails = (props) => {
     } else {
         return (
             <div className='container center'>
-                <p>Loading sport...</p>
+                <p>Loading bar...</p>
             </div>
         )
     }
@@ -36,10 +36,10 @@ const SportDetails = (props) => {
 const mapStateToProps = (state, ownProps) => {
     // console.log(state);
     const id = ownProps.match.params.id;
-    const sports = state.firestore.data.sports;
-    const sport = sports ? sports[id] : null
+    const bars = state.firestore.data.bars;
+    const bar = bars ? bars[id] : null
     return {
-        sport: sport,
+        bar: bar,
         auth: state.firebase.auth
     }
 }
@@ -47,6 +47,6 @@ const mapStateToProps = (state, ownProps) => {
 export default compose(
     connect(mapStateToProps),
     firestoreConnect([
-        { collection: 'sports' }
+        { collection: 'bars' }
     ])
-)(SportDetails);
+)(BarDetails);

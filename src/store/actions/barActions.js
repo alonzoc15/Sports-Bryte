@@ -1,19 +1,19 @@
-export const createSport = (sport) => {
+export const createBar = (bar) => {
     return ( dispatch, getState, { getFirebase, getFirestore } ) => {
         // make async call to database
         const firestore = getFirestore();
         const profile = getState().firebase.profile;
         const authorId = getState().firebase.auth.uid;
-        firestore.collection('sports').add({
-            ...sport,
+        firestore.collection('bars').add({
+            ...bar,
             authorFirstName: profile.firstName,
             authorLastName: profile.lastName,
             authorId: authorId,
             createdAt: new Date()
         }).then(() => {
-            dispatch({ type: 'CREATE_SPORT', sport });
+            dispatch({ type: 'CREATE_BAR', bar });
         }).catch((err) => {
-            dispatch({ type: 'CREATE_SPORT_ERROR', err});
+            dispatch({ type: 'CREATE_BAR_ERROR', err});
         })
 
     }

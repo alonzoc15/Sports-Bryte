@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createSport } from '../../store/actions/sportActions';
+import { createBar } from '../../store/actions/barActions';
 import { Redirect } from 'react-router-dom';
 
-class CreateSport extends Component {
+class CreateBar extends Component {
     state = {
             title: '',
             content: ''
@@ -17,7 +17,7 @@ class CreateSport extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         // console.log(this.state);
-        this.props.createSport(this.state)
+        this.props.createBar(this.state)
         this.props.history.push('/');
     }
     render() {
@@ -27,13 +27,13 @@ class CreateSport extends Component {
         return (
             <div className='container'>
                 <form onSubmit={this.handleSubmit} className='white'>
-                    <h5 className='grey-text text-darken-3'>Create New Sport</h5>
+                    <h5 className='grey-text text-darken-3'>Create New Reservation</h5>
                     <div className='input-field'>
-                        <label htmlFor='title'>Sport Event</label>
+                        <label htmlFor='title'>Bar Event</label>
                         <input type='text' id='title' onChange={this.handleChange} />
                     </div>
                     <div className='input-field'>
-                        <label htmlFor='content'>Sport Info</label>
+                        <label htmlFor='content'>Bar Info</label>
                         <textarea id='content' className='materialize-textarea' onChange={this.handleChange}></textarea>
                     </div>
                     <div className='input-field'>
@@ -53,8 +53,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        createSport: (sport) => dispatch(createSport(sport))
+        createBar: (bar) => dispatch(createBar(bar))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateSport);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateBar);

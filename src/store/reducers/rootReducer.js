@@ -1,12 +1,12 @@
 import authReducer from './authReducer';
-import sportReducer from './sportReducer';
+import barReducer from './barReducer';
 import { combineReducers } from 'redux';
 import { firestoreReducer } from 'redux-firestore';
 import { firebaseReducer } from 'react-redux-firebase';
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    sport: sportReducer,
+    bar: barReducer,
     firestore: firestoreReducer,
     firebase: firebaseReducer
 })

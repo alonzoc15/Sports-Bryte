@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Dashboard from './components/dashboard/Dashboard';
-import SportDetails from './components/sports/SportDetails';
+import BarDetails from './components/bars/BarDetails';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
-import CreateSport from './components/sports/CreateSport';
+import CreateBar from './components/bars/CreateBar';
 
 class App extends Component {
   render() {
@@ -15,10 +15,10 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path='/' component={Dashboard} />
-            <Route path='/sport/:id' component={SportDetails} />
+            <Route path='/bar/:id' component={BarDetails} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
-            <Route path='/create' component={CreateSport} />
+            <Route path='/create' component={CreateBar} />
           </Switch>
         </div>
       </BrowserRouter>
