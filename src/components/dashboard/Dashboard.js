@@ -10,6 +10,7 @@ class Dashboard extends Component {
     render() {
         console.log(this.props);
         const { bars, auth, reservations } = this.props
+
         if (!auth.uid) return <Redirect to='/signIn' />
 
         return (
@@ -20,6 +21,9 @@ class Dashboard extends Component {
                     </div>
                     <div className='col s12 m5 offset-m1'>
                         <Reservations reservations={ reservations } />
+                    </div>
+                    <div className='col s12 m5 offset-m2'>
+                    
                     </div>
                 </div>
             </div>

@@ -6,11 +6,11 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
     response.send("Hello, Alonzo");
 });
 
-const createReservation = (reservation => {
-    return admin.firestore().collection('reservations')
-        .add(reservation)
-        .then(doc => console.log('reservation added', doc))
-})
+// const createReservation = (reservation => {
+//     return admin.firestore().collection('reservations')
+//         .add(reservation)
+//         .then(doc => console.log('reservation added', doc))
+// })
 
 exports.barCreated = functions.firestore
     .document('bars/{barId}')

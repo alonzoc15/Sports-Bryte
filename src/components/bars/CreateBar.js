@@ -29,11 +29,11 @@ class CreateBar extends Component {
                 <form onSubmit={this.handleSubmit} className='white'>
                     <h5 className='grey-text text-darken-3'>Create New Reservation</h5>
                     <div className='input-field'>
-                        <label htmlFor='title'>Bar Event</label>
+                        <label htmlFor='title'>Bar Choice</label>
                         <input type='text' id='title' onChange={this.handleChange} />
                     </div>
                     <div className='input-field'>
-                        <label htmlFor='content'>Bar Info</label>
+                        <label htmlFor='content'>Bar Event</label>
                         <textarea id='content' className='materialize-textarea' onChange={this.handleChange}></textarea>
                     </div>
                     <div className='input-field'>

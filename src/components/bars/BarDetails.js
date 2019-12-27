@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 import moment from 'moment';
 
 const BarDetails = (props) => {
@@ -15,11 +16,11 @@ const BarDetails = (props) => {
                 <div className='card z-depth-0'>
                     <div className='card-content'>
                         <span className='card-title'>{ bar.title }</span>
-                        <p>{ bar.content }</p>
                     </div>
                     <div className='card-action grey lighten-4 grey-text'>
-                        <div>Posted By { bar.authorFirstName } { bar.authorLastName }</div>
-                        <div>{moment(bar.createdAt.toDate().toString()).calendar()}</div>
+                        <p>Tonight's Lineup</p>
+                        <p className='grey-text'>NBA GAME - Bulls at Knicks</p>
+                        <p className='grey-text'>NFL GAME - Giants at Bills</p>
                     </div>
                 </div>
             </div>

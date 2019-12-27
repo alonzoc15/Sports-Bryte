@@ -6,8 +6,7 @@ const BarSummary = ({bar}) => {
         <div className='card z-depth-0 bar-summary'>
             <div className='card-content grey-text text-darken-3'>
                 <span className='card-title'>{bar.title}</span>
-                <p>Posted by {bar.authorFirstName} {bar.authorLastName}</p>
-                <p className='grey-text'>{moment(bar.createdAt.toDate().toString()).calendar()}</p>
+                <p>Click for more detail</p>
             </div>
         </div>
     )
